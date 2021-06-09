@@ -18,9 +18,7 @@ format application/json
 
 Exemple:
 ```javascript
-{
-  "email" : string,
-}
+{"email": string}
 ```
 
 #### Réponse
