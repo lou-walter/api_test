@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const justifier = require('./justifier')
 const token = require('./token')
 
-const PORT = 3000
+const PORT = 8080
 
 const app = express()
 app.use(bodyParser.json())
