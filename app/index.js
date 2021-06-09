@@ -39,6 +39,6 @@ app.post(
     }
 )
 
-module.exports = app.listen(PORT, () =>
+module.exports = app.listen(process.env.PORT || PORT, () =>
     console.log(`App en écoute sur le port ${PORT}!`)
 )
