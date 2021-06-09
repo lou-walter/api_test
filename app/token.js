@@ -13,6 +13,7 @@ module.exports = {
     genererToken,
     authentifierToken,
     limiterUtilisationToken,
+    cache
 }
 
 /**
@@ -53,7 +54,7 @@ function limiterUtilisationToken (req, res, next) {
         } else if (nbMots + tailleTexte < LIMIT_RATE) {
             cache.set(user, tailleTexte + nbMots, (cache.getTtl(user) - Date.now()) / 1000 | 0)
         } else {
-            res.status(402).send('Payment required')
+            return  res.status(402).send('Payment required')
         }
     } catch (err) {
         res.status(500).send(err)

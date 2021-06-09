@@ -29,7 +29,7 @@ Exemple:
 | :--- | :--- |
 | 200 | "token" |
 | 400 | 'Le body doit être au format application/json' |
-| 403 | 'Champ email manquant' |
+| 422 | 'Champ email manquant' |
 
 ### Justifier
 
@@ -51,4 +51,5 @@ Format text/plain
 | 200 | texte justifié |
 | 400 | 'Le body doit être au format text/plain' |
 | 401 | 'Token manquant' |
+| 402 | 'Payment required |
 | 403 | 'Mauvais token' |

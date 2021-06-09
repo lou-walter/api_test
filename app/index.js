@@ -11,8 +11,8 @@ app.use(express.text())
 
 app.post('/token',
     (req, res, next) => {
-        if (! req.is('application/json')) res.status(400).send('Le body doit être au format application/json')
-        if (req.body.email === undefined) res.status(40).send('Le body doit être au format application/json')
+        if (! req.is('application/json')) return res.status(400).send('Le body doit être au format application/json')
+        if (req.body.email === undefined) return res.status(403).send('Champ email manquant')
         next()
     },
     (req, res) => {
@@ -23,20 +23,22 @@ app.post('/token',
 app.post(
     '/justifier',
     (req, res, next) => {
-        if (! req.is('text/plain')) res.status(400).send('Le body doit être au format text/plain')
+        if (! req.is('text/plain')) {
+            return res.status(400).send('Le body doit être au format text/plain')
+        }
         next()
     },
     token.authentifierToken,
     token.limiterUtilisationToken,
     (req, res) => {
         try {
-            res.send(justifier.justifierParagraphes(justifier.separerParagraphes(req.body), 80))
+            return res.send(justifier.justifierParagraphes(justifier.separerParagraphes(req.body), 80))
         } catch(err) {
-            res.status(500).send(err)
+            return res.status(500).send(err)
         }
     }
 )
 
-app.listen(PORT, () =>
+module.exports = app.listen(PORT, () =>
     console.log(`App en écoute sur le port ${PORT}!`)
 )

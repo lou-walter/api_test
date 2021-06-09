@@ -12,7 +12,7 @@ module.exports = {
 function separerParagraphes(texte) {
     return texte
         .trim()
-        .split(/(?:\r\n){2,}|\n{2,}|\r{2,}/)
+        .split(/(?:\r\n *){2,}|(?:\r *){2,}|(?:\n *){2,}/)
         .filter((el) => el)
 }
 
@@ -22,7 +22,7 @@ function separerParagraphes(texte) {
  * @return {string[]} Tableau dont les éléments sont les mots du texte
  */
 function separerMots(texte) {
-    return texte.trim().replace(/\r\n/gm, '').split(/ +/)
+    return texte.trim().replace(/[\r\n]+/g, '').split(/ +/)
 }
 
 /**
