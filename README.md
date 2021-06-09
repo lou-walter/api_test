@@ -10,7 +10,7 @@ Génère un token à partir d'une adresse email
 #### Requête
 
 ```http
-POST /api/token
+POST https://api-test-tictactrip.herokuapp.com/token
 ```
 #### Body
 
@@ -36,7 +36,7 @@ Justifie un texte passé dans le body et revoie le texte justifié, authentifica
 #### Requête
 
 ```http
-POST /api/justifier
+POST https://api-test-tictactrip.herokuapp.com/justifier
 ```
 #### Body
 
