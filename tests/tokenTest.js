@@ -9,7 +9,7 @@ const mauvaisBody = {"nom":"lw@laposte.net"}
 const body = {"email":"lw@laposte.net"}
 const token = "eyJhbGciOiJIUzI1NiJ9.bHdAbGFwb3N0ZS5uZXQ.1XZRvUTbLj3oaxJIeKjfWkuxn5bne7AUU_BOLigax-s"
 
-describe('Test route POST /justifier', () => {
+describe('Test route POST /token', () => {
     it("Retourne un token unique", (done) => {
         chai.request(app)
             .post('/token')
